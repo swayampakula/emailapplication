@@ -1,0 +1,28 @@
+.mails {
+  padding: 1%;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.mailcumfilter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.mailtext {
+  font-weight: 600;
+}
+
+.delflag {
+  float: right;
+  cursor: pointer;
+}
+
+.flag {
+  cursor: pointer;
+}
+
+.del {
+  cursor: pointer;
+}

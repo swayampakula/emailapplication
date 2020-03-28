@@ -1,0 +1,11 @@
+.folders {
+  margin-left: -10%;
+}
+
+.cursorpointer {
+  cursor: pointer;
+}
+
+.cursorpointer > * {
+  margin-bottom: 5%;
+}
