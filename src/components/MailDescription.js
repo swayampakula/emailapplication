@@ -7,9 +7,13 @@ class MailDescription extends Component {
   render() {
     console.log(this.props.selectedMail);
     return this.props.selectedMail ? (
-      <div className="maildescription">
-        <div>{this.props.selectedMail.subject}</div>
-        <div>{this.props.selectedMail.mId}</div>
+      <div className="maildesc">
+        <div className="idcumsub">
+          <strong>
+            {this.props.selectedMail.mId} - {this.props.selectedMail.subject}
+          </strong>
+        </div>
+
         <div>{this.props.selectedMail.content}</div>
       </div>
     ) : (

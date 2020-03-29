@@ -1,7 +1,11 @@
 .mails {
   padding: 1%;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid lightgrey;
   cursor: pointer;
+}
+
+.mails:hover {
+  background-color: #edebe9;
 }
 
 .mailcumfilter {

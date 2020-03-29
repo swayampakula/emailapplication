@@ -4,6 +4,12 @@
   justify-content: center;
 } */
 
-.maildescription {
-  padding: 5%;
+.maildesc {
+  padding: 2%;
+  background-color: #fff;
+  width: auto;
+}
+
+.idcumsub {
+  margin-bottom: 2%;
 }
