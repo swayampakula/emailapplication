@@ -53,15 +53,18 @@ class Mailbox extends Component {
                     {mail.mId}
                     {this.state.hoverindex === index && (
                       <span className="delflag">
-                        <button
-                          className="del"
-                          onClick={e => {
-                            this.props.deleteMail(mail);
-                            e.stopPropagation();
-                          }}
-                        >
-                          Del
-                        </button>
+                        {this.props.activeItem !== "delete" && (
+                          <button
+                            className="del"
+                            onClick={e => {
+                              this.props.deleteMail(mail);
+                              e.stopPropagation();
+                            }}
+                          >
+                            Del
+                          </button>
+                        )}
+
                         <button
                           className="flag"
                           onClick={e => {

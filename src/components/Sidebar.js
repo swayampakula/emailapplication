@@ -6,6 +6,7 @@ import {
   getdeletedMails
 } from "../redux/actionCreators/inbox";
 import "./sidebar.css";
+import { Link, withRouter } from "react-router-dom";
 
 class Sidebar extends Component {
   state = {};
@@ -18,7 +19,10 @@ class Sidebar extends Component {
             style={{
               color: this.props.activeItem === "inbox" ? "blue" : "black"
             }}
-            onClick={() => this.props.getInboxMails("inbox")}
+            onClick={() => {
+              this.props.getInboxMails("inbox");
+              this.props.history.push("/inbox");
+            }}
           >
             Inbox
           </div>
@@ -26,7 +30,10 @@ class Sidebar extends Component {
             style={{
               color: this.props.activeItem === "spam" ? "blue" : "black"
             }}
-            onClick={() => this.props.getSpamMails("spam")}
+            onClick={() => {
+              this.props.getSpamMails("spam");
+              this.props.history.push("/spam");
+            }}
           >
             Spam
           </div>
@@ -34,7 +41,10 @@ class Sidebar extends Component {
             style={{
               color: this.props.activeItem === "delete" ? "blue" : "black"
             }}
-            onClick={() => this.props.getdeletedMails("delete")}
+            onClick={() => {
+              this.props.getdeletedMails("delete");
+              this.props.history.push("/delete");
+            }}
           >
             Deleted Items
           </div>
@@ -48,8 +58,10 @@ const mapStateToProps = state => ({
   activeItem: state.inboxMails.activeItem
 });
 
-export default connect(mapStateToProps, {
-  getInboxMails,
-  getSpamMails,
-  getdeletedMails
-})(Sidebar);
+export default withRouter(
+  connect(mapStateToProps, {
+    getInboxMails,
+    getSpamMails,
+    getdeletedMails
+  })(Sidebar)
+);
