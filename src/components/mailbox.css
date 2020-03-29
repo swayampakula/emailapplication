@@ -26,3 +26,8 @@
 .del {
   cursor: pointer;
 }
+
+select {
+  border: 0px;
+  outline: 0px;
+}
