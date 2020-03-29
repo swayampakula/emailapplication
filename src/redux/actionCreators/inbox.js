@@ -1,51 +1,27 @@
 import * as actionTypes from "../actionTypes";
+const inboxdata = require("../../data/inbox.json");
+const spamdata = require("../../data/spam.json");
+const deletedata = require("../../data/delete.json");
 
 export const getInboxMails = item => async dispatch => {
-  await fetch("http://localhost:3001/data/inbox.json")
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      dispatch({
-        type: actionTypes.GETINBOXMAILS,
-        payload: { data, item }
-      });
-    })
-    .catch(error => {
-      console.log(error.message);
-    });
+  dispatch({
+    type: actionTypes.GETINBOXMAILS,
+    payload: { inboxdata, item }
+  });
 };
 
 export const getSpamMails = item => async dispatch => {
-  await fetch("http://localhost:3001/data/spam.json")
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      dispatch({
-        type: actionTypes.GETSPAMMAILS,
-        payload: { data, item }
-      });
-    })
-    .catch(error => {
-      console.log(error.message);
-    });
+  dispatch({
+    type: actionTypes.GETSPAMMAILS,
+    payload: { spamdata, item }
+  });
 };
 
 export const getdeletedMails = item => async dispatch => {
-  await fetch("http://localhost:3001/data/delete.json")
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      dispatch({
-        type: actionTypes.GETDELETEDMAILS,
-        payload: { data, item }
-      });
-    })
-    .catch(error => {
-      console.log(error.message);
-    });
+  dispatch({
+    type: actionTypes.GETDELETEDMAILS,
+    payload: { deletedata, item }
+  });
 };
 
 export const selectedMail = mail => async dispatch => {
