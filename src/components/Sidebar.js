@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import {
   getInboxMails,
   getSpamMails,
-  getdeletedMails
+  getdeletedMails,
 } from "../redux/actionCreators/inbox";
 import "./sidebar.css";
 import { Link, withRouter } from "react-router-dom";
+import store from "../redux/store";
 
 class Sidebar extends Component {
   state = {};
@@ -17,7 +18,7 @@ class Sidebar extends Component {
           <div className="folders">Folders</div>
           <div
             style={{
-              color: this.props.activeItem === "inbox" ? "blue" : "black"
+              color: this.props.activeItem === "inbox" ? "blue" : "black",
             }}
             onClick={() => {
               this.props.getInboxMails("inbox");
@@ -28,7 +29,7 @@ class Sidebar extends Component {
           </div>
           <div
             style={{
-              color: this.props.activeItem === "spam" ? "blue" : "black"
+              color: this.props.activeItem === "spam" ? "blue" : "black",
             }}
             onClick={() => {
               this.props.getSpamMails("spam");
@@ -39,7 +40,7 @@ class Sidebar extends Component {
           </div>
           <div
             style={{
-              color: this.props.activeItem === "delete" ? "blue" : "black"
+              color: this.props.activeItem === "delete" ? "blue" : "black",
             }}
             onClick={() => {
               this.props.getdeletedMails("delete");
@@ -54,14 +55,14 @@ class Sidebar extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  activeItem: state.inboxMails.activeItem
+const mapStateToProps = (state) => ({
+  activeItem: state.inboxMails.activeItem,
 });
 
 export default withRouter(
   connect(mapStateToProps, {
     getInboxMails,
     getSpamMails,
-    getdeletedMails
+    getdeletedMails,
   })(Sidebar)
 );
